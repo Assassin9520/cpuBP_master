@@ -1,0 +1,3 @@
+ui_cpuBP.php a fost fisierul in care s-a construit interfata lui cpuBP. el a fost langa index.php in folderul root(LETTER:\Php_xampp\htdocs\cpuBP_master)
+
+Daca e nevoie vreodata de el , il tragi inapoi acolo.

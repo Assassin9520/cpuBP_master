@@ -1,0 +1,335 @@
+@charset "utf-8";
+
+body, html{
+    padding:0!important; 
+    margin:0 !important;
+}    
+
+html{ }
+body{ width:100%;  /*background:#474e58;*/  background:#fff;}
+
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+/*========================================================================================================*
+ *  Styling of app
+/*========================================================================================================*/
+.wrapper-app{ display:block; width:100%; float:left; clear:both; height:auto; background:#474e58; position: relative;
+  background: #474e58;
+  background: -webkit-linear-gradient(bottom, #474e58 , #58677c); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(top, #474e58 , #58677c); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(top, #474e58 , #58677c); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to top, #474e58 , #58677c); /* Standard syntax */}
+
+
+/*full screen overlay to display when clicking on submit*/
+/*.overlay-app-executing{ display:none; background-color: rgba(0,0,0,.9); width: 100%; height: 1000px; position: absolute; top: 0; left: 0; z-index: 100; } */
+.overlay-app-executing{ display:none; background-color: rgba(0,0,0,0.7); width: 500px; height: 400px; position: absolute; top: 0; left: 0; ; right:0; bottom: 0; margin: auto; z-index: 100; }
+.overlay-app-executing .status-this{ display: block; position: absolute; width: 200px; height: 50px; top: 0; right: 0; bottom: 0; left: 0; margin:auto; }
+.overlay-app-executing .status-this .images-this{ display: block; width: 50px; height: 50px; float: left; position: relative; }
+.overlay-app-executing .status-this .images-this .img-settings1{ animation-name: rotate-icon-overl; animation-duration: 2s; animation-iteration-count: infinite; animation-timing-function: linear; }
+.overlay-app-executing .status-this .images-this .img-settings2{ display: block; width: 16px; height: 16px; position: absolute; top: 18px; left: 18px;   animation-name: rotate-icon-overlA; animation-duration: 2s; animation-iteration-count: infinite; animation-timing-function: linear;}
+.overlay-app-executing .status-this .text-this{ display: block; float: left; color: #fff; font-size: 16px; line-height: 30px;}
+/*linked - animation for wheel in overlay*/
+@keyframes rotate-icon-overl {
+	0%   {transform: rotate(0deg);}/*0 degrees*/
+    25%  { }
+    50%  { }
+    100% {transform: rotate(360deg);}
+}
+@keyframes rotate-icon-overlA {
+	0%   {transform: rotate(0deg);}/*0 degrees*/
+    25%  { }
+    50%  { }
+    100% {transform: rotate(-360deg);}
+}
+
+
+
+/*======================================================================================================================*
+ *  Aside UI
+/*======================================================================================================================*/
+/*NO aside in this project*/
+
+
+
+
+/*======================================================================================================================*
+ *  Main Content UI
+/*======================================================================================================================*/  
+.content{ display:block; width:100%; float:left; height:auto; /*padding:15px 15px 15px 20px;*/padding:5px 0px 0px 0px; box-sizing: border-box;}
+
+.notification-area-top{ display: block; /*width: 100%;*/ height: auto; /*height: 40px;*/ height: auto; /*float: left;*/ clear: both; padding-right: 20px;  padding-top: 0px; }
+.notification-area-top .notif-button{display:inline-block; padding:17px 25px; /*background:#528cd9 ;*/ background:#fff; color:#64bdeb; font-size:15px; border:none; border-radius:3px; -moz-border-radius:3px; -webkit-border-radius:3px; cursor:pointer; font-family:inherit; margin-left:10px; transition: all linear 160ms;}
+.notification-area-top .notif-button.has-animation{animation-name: notif-button-repetitive-red; animation-duration: 2s; animation-iteration-count: infinite; animation-timing-function: linear; }
+/*linked - animation for notification buttons turning red */
+@keyframes notif-button-repetitive-red {
+    0%   { background:#fff;}
+    25%  { }
+    50%  { background: #ff0000; color: #fff; }
+    75%  { }
+    100% { background:#ff0000; color: #fff; }
+}
+.notification-area-top .logo-main-app-ui{ display: inline-block; float: left; height: auto; color: #fff; font-size: 14px; height: 40px; line-height: 40px; padding: 0 10px; }
+
+
+
+/******************************************
+Styling of source code text insertion
+******************************************/
+.section-form-data{ width:29.99%; float:left; height:auto; /*padding:15px 15px 15px 0px;*/padding:5px 5px 15px 10px;  box-sizing:border-box; -moz-box-sizing:border-box; -webkit-box-sizing:border-box;}
+/*linked*/
+.section-form-data .title-main-name{position: relative; top:2px; display: inline-block; height: auto; padding: 12px 18px 12px 12px; font-stretch: 18px; color: #F5F5F5;  background: #272822; margin-left: 0px; border:1px solid #585858; border-bottom: none; border-bottom: 1px solid #585858; border-radius: 10px 10px 0 0;  }
+.section-form-data .title-main-name .round-corner-outside-right{ display: block; width: 10px; height: 20px; position: absolute; right: -10px; bottom: 0; background: #272822;/*match color of main-title*/ }
+.section-form-data .title-main-name .round-corner-outside-right .corner{ display: block; width: 10px; height: 20px; position: relative; background: #58667B;/*match color of background*/ border-radius: 0px 0 0 6px ;}
+/*linked*/
+.section-form-data .form-this{ display:block; width:100%; height:auto; float:left; clear:both;}
+.section-form-data .form-this .input-this.on-textarea{ display:block; width:100%; max-width:100%; height:750px; max-height:750px; background:#272822; border:1px solid #585858; color:#a6e22c; font-size:15px;  box-sizing:border-box; -moz-box-sizing:border-box; -webkit-box-sizing:border-box; padding:10px; font-family:'Consolas'; border-radius:0px 8px 8px 8px; -moz-border-radius:0px 8px 8px 8px; -webkit-border-radius:0px 8px 8px 8px; transition:all linear 160ms;}
+.section-form-data .form-this .input-this.on-textarea:focus{ box-shadow:0 0 25px 1px rgba(0,0,0,0.4);}
+.section-form-data .form-this .input-submit{ display:inline-block; padding:15px 25px 15px 35px; background: url("resources/icon-play-16px.png") 12px center no-repeat #8dd26d ; color:#fff; font-size:15px; border:none; border-radius:3px; -moz-border-radius:3px; -webkit-border-radius:3px; margin-top:10px; cursor:pointer; font-family:inherit; margin-right:8px; transition: all linear 160ms;}
+.section-form-data .form-this .input-submit:hover{ background-color: #9ee97b; }
+/*linked*/
+.section-form-data .form-this .form-this-choose-branch-prediction-mode{ display: inline-block; height: auto; max-width: 250px; position: relative; }
+.section-form-data .form-this .form-this-choose-branch-prediction-mode .bp-select-title{ padding:15px 25px 15px 35px; background: url("resources/icon-menu-choose-prediction-mode.png") 12px center no-repeat #FFD702 ; color:#1A1A1A; font-size:15px; border:none; border-radius:3px; -moz-border-radius:3px; -webkit-border-radius:3px; margin-top:10px; cursor:pointer; font-family:inherit; margin-right:8px; transition: all linear 160ms;  }
+.section-form-data .form-this .form-this-choose-branch-prediction-mode .inputs-holder{ /*display: block;*/ height: auto; clear: both; width: 100%; background-color:#31353A;padding:10px 0; position: absolute; top: -141px;/*this will be well known every time*/ left: 0; display: none;  }
+.section-form-data .form-this .form-this-choose-branch-prediction-mode:hover .inputs-holder{ display: block; }
+.section-form-data .form-this .form-this-choose-branch-prediction-mode .inputs-holder .input-holder{ display: block; width: 100%; clear: both; cursor: pointer;  padding: 7px; box-sizing: border-box; }
+.section-form-data .form-this .form-this-choose-branch-prediction-mode .inputs-holder .input-holder input{ cursor: pointer; }
+.section-form-data .form-this .form-this-choose-branch-prediction-mode .inputs-holder .input-holder .input-title{ display: inline-block; color: #fff; cursor: pointer;}
+
+
+/********************************
+Styling of results goes here:
+(rate of prediction, table of order of execution, registers, etc)
+*********************************/
+.section-display-results{ width:69.99%; float:left; height:auto; position: relative; /*padding:15px 0px 15px 15px;*/padding:5px 10px 15px 5px; box-sizing:border-box; -moz-box-sizing:border-box; -webkit-box-sizing:border-box; }
+/*linked*/
+.section-display-results .title-main-name{position: relative; top:2px; display: inline-block; height: auto; padding: 12px 18px 12px 12px; font-stretch: 18px; color: #D1D1D1;  background: #04080D; margin-left: 0px; border:1px solid #585858; border-bottom: none;  border-radius: 10px 10px 0 0; transition: 100ms linear all;  }
+.section-display-results .section-tabs{display: block; height: auto;}
+.section-display-results .section-tabs .tabs-anchor{display: block; height: auto; padding-left: 0px;}
+.section-display-results .section-tabs .tabs-anchor .title-main-name.selected{color: #F5F5F5;  background: #31353A;}
+/*linked*/
+.section-display-results .display-results{ width:100%; height:auto; height:750px; background:#31353a; overflow-y:hidden; border-radius:0px 8px 8px 8px; -moz-border-radius:0px 8px 8px 8px; -webkit-border-radius:0px 8px 8px 8px; position:relative; padding: 15px; box-sizing: border-box;  padding-right: 0px;/*to look good with scroll*/  }
+/*linked*/
+.section-display-results .display-results .figure-not-executed{ background:url(resources/icon-image-display-results-cpu.png ) top center no-repeat; width:300px; /*height:300px;*/ height:230px; position:absolute; top:0; bottom:0; left:0; right:0; margin:auto; text-align:center; opacity:0.3;}
+.section-display-results .display-results .figure-not-executed span{ display:block; width:100%; position:absolute; bottom:0; font-size:18px; font-weight:200;font-family: 'Open Sans', sans-serif; color: #fff; cursor: default;}
+/*display-roll-this horizontal*/
+/*
+.section-display-results .display-results .display-roll-this{ width:3000px; height:700px; color:white; overflow: auto;}
+*/
+/*display-roll-this vertical*/
+.section-display-results .display-results .display-roll-this{ /*width:3000px;*/ height:750px; color:white; overflow: auto; }
+/*linked*/
+.section-display-results .display-results .img-this{ /*display: inline-block; float: left; padding: 20px;*/ display: block; position: relative; width: 100%; height: auto; float: left; clear: both; padding: 10px 20px; text-align: center;  box-sizing:border-box; -moz-box-sizing:border-box; -webkit-box-sizing: border-box;  }
+.section-display-results .display-results .img-this img{ max-width: 100%; /*remove this property if in need for images to go for their full original width*/ }
+.section-display-results .display-results .img-this .name-of-image{ display: block; position: absolute; top: 0; left: 20px; bottom: 0; margin: auto; height: 20px; background: rgba(0,0,0,0.4); font-size: 13px; padding: 0 8px; line-height: 20px; transition: all linear 160ms; visibility: hidden; opacity: 0; }
+.section-display-results .display-results .img-this:hover .name-of-image{ opacity: 1; visibility: visible; }
+
+
+
+.section-display-results .button-full-screen-this{ display: block; visibility:hidden; opacity: 0; position: absolute; bottom: 15px;/*initially, was 0 , but moved to main display parent*/ right: 10px; color: #fff; background: url("resources/icon-full-screen-maximize.png") center center no-repeat #19202A; background-color: #19202A; width: 50px; height: 50px; border-radius:3px; -moz-border-radius:3px; -webkit-border-radius:3px; transition: all linear 160ms; }
+.section-display-results .button-full-screen-this.icon-full-screen{ background-image: url("resources/icon-full-screen-minimize.png"); }
+/*linked on-full-screen class changes*/
+.section-display-results.on-full-screen{ position: absolute; top: 0; left: 0; width: 100%; height: 1000px;  padding: 0;    background: #58667B; }
+.section-display-results.on-full-screen .display-results{ height: 1000px; }
+.section-display-results.on-full-screen .display-results .display-roll-this{ height: 100%; }
+.section-display-results.on-full-screen .button-full-screen-this{ top: 0; right: 0; bottom: auto; visibility: visible; opacity: 1;/*button always visible on full screen*/ }
+/*linked*/
+.section-display-results:hover .button-full-screen-this{ visibility: visible; opacity: 1;}
+/*linked*/
+/*.section-display-results.on-full-screen .section-display-results .display-results .view-app-results.on-tabs-nav-overflow{height: 900px;} */
+
+
+
+/******************************************
+Styling of rate of prediction figure
+AND
+Styling of number-of-predictions
+******************************************/
+.section-display-results .figure-correct-prediction-rate{display: block; height: auto; min-height: 18px; width: 500px; background: #fff; position: relative; padding: 20px 30px 20px 45px; border-radius: 5px; background: url("resources/icon_rate_prediction_view.png") 10px center no-repeat #fff; margin-bottom: 15px;}
+.section-display-results .figure-correct-prediction-rate .text-this{  }
+.section-display-results .figure-correct-prediction-rate .arrow-toggle-this{ cursor: pointer; display: inline-block; float: right; text-indent: -9999px; width: 14px; height: 17px; background: url("resources/arrows_concomitent_rate_prediction.png") top left no-repeat;  }
+.section-display-results .figure-correct-prediction-rate .div-show-prediction-calculation{ display:none; position: absolute; bottom: 0; left: 0; width: 100%; box-sizing: border-box; padding: 6px 10px 10px 10px; border-top: 1px solid #e4e2e4;  }
+.section-display-results .figure-correct-prediction-rate.on-div-calc{ padding-bottom: 80px; background-position: 10px 20px;  }
+
+
+.section-display-results .figure-no-of-predictions{display: block; height: auto; width: 545px; background: #fff; padding: 15px 30px 15px 0px; border-radius: 5px;  margin-bottom: 15px; }
+.section-display-results .figure-no-of-predictions .text-this{ display: block; height: auto; padding: 8px 0 8px 0; }
+.section-display-results .figure-no-of-predictions .text-this.good-predictions{background: url("resources/icon_correct_green_24px.png") 10px center no-repeat #fff;    padding-left: 45px;  }
+.section-display-results .figure-no-of-predictions .text-this.bad-predictions {background: url("resources/icon_miss_red_18px.png") 13px center no-repeat #fff;  padding-left: 45px; }
+
+
+.section-display-results .prediction-chosen-by-user{display: block; color:#fff; margin-bottom: 15px;}
+
+
+
+/******************************************
+Styling of table of predictions
+Tabel de predictii
+******************************************/
+.table-predictions-div{ display: block; width: 100%; height: auto; clear: both; margin-bottom: 15px; }
+.table-predictions-div .title-main{ display: block; width: 850px; font-size:18px; color: #fafafa; margin-bottom: 10px; font-weight: 500; }
+.table-predictions{ width: 100%; max-width: 575px;  background: #2F3034;      /*for border radius ->*/ border-collapse: collapse; border-radius: 8px 8px 8px 8px ; overflow: hidden;  }
+.table-predictions tr { text-align: center; font-style: 15px; }
+.table-predictions tr th{}
+.table-predictions tr td{}
+/*linked*/
+.table-predictions tr{background: #2F3034; color:#9C9DA1;}
+.table-predictions tr:first-child {background: #57585C;}
+.table-predictions tr:first-child th{padding-top: 10px; padding-bottom: 10px; }
+.table-predictions tr:last-child  td{padding-bottom: 10px;}
+
+
+
+/******************************************
+Styling of table of order of execution of instructions
+Tabel ordine executie instructiuni
+******************************************/
+.table-order-execution-div{ display: block; width: 100%; height: auto; clear: both; }
+.table-order-execution-div .title-main{ display: block; width: 850px; font-size:18px; color: #fafafa; margin-bottom: 10px; font-weight: 500; }
+.table-order-execution{ width: 850px;  background: #2F3034;      /*for border radius ->*/ border-collapse: collapse; border-radius: 8px 8px 8px 8px ; /*overflow: hidden;*/  }
+.table-order-execution tr.table-head-row{ height: 60px; text-align: left; font-size:15px; color:#B6B7BB; }
+.table-order-execution tr.table-head-row th { background: #57585C; }
+.table-order-execution tr.table-head-row th span{ display: inline-block; padding: 5px 0px; }
+.table-order-execution tr.table-head-row th:first-child span{ padding: 5px 10px; }
+/*border-radius on head of table*/
+/*https://stackoverflow.com/questions/4094126/how-to-add-border-radius-on-table-row/4094151#4094151*/
+.table-order-execution { /*border-collapse: separate;*/ }
+.table-order-execution tr.table-head-row th {  }
+.table-order-execution tr.table-head-row:first-child th:first-child { border-top-left-radius: 10px; }
+.table-order-execution tr.table-head-row:first-child th:last-child { border-top-right-radius: 10px; }
+.table-order-execution tr.table-head-row:last-child th:first-child { border-bottom-left-radius: 0px; }
+.table-order-execution tr.table-head-row:last-child th:last-child { border-bottom-right-radius: 0px; }
+/*linked - rest of body*/
+.table-order-execution tr.tr-content { height: 40px; border-bottom: 1px solid #3F4044; color: #9C9DA1;}
+.table-order-execution tr.tr-content td:first-child span { padding-left: 10px; }
+.table-order-execution tr.tr-content td span { padding: 0px 10px 0 0; }
+.table-order-execution tr.tr-content td .span-jump{ position: relative; display: inline-block; width: 100%; background: #28413B; color: #0BAE75; height: 40px; line-height: 40px; padding-left: 0px; box-sizing: border-box; text-align: center;  }
+/*linked*/
+.table-order-execution tr.tr-content td .span-jump .details-prediction{ position: relative; display: inline-block; float: right;  margin-top: 4px;}
+.table-order-execution tr.tr-content td .span-jump .details-prediction .icon-this{ display: block; width: 30px; height: 30px; line-height: 30px; background: #ffffff; border-radius: 200px; cursor: pointer; color: #37C6D4; font-size:16px; }
+.table-order-execution tr.tr-content td .span-jump .details-prediction .description-this{ display: block; opacity: 0; position: absolute; width: 200px; height: auto; top: -10px; left: 45px; padding:15px 10px 10px 10px; background: #2F3034; color: #dddfdf; text-align: left; font-size:13px; line-height: 100%; border:1px solid #1D1E22; border-radius: 3px; transition: all linear 100ms;  }
+.table-order-execution tr.tr-content td .span-jump .details-prediction:hover .description-this{ display: block; opacity: 1; }
+.table-order-execution tr.tr-content td .span-jump .details-prediction .description-this p{display: block; padding: 0 0 5px 0;}
+/*linked*/
+.table-order-execution tr td.action-column, .table-order-execution tr.table-head-row th.action-column{ display: table-cell; }
+
+/*linked*/
+.table-order-execution tr:last-child{ /*for border radius ->*/ border-collapse: collapse; border-radius: 0 0 8px 8px ; overflow: hidden; }
+
+
+.figure-hide-show-action-field-table{display: block; width: 250px; height: auto; clear: both; margin: 0 0 10px 0; background: #fff; border-radius: 3px;  padding: 6px;}
+.figure-hide-show-action-field-table .button-this{ display: inline-block; background: #FFD702; border: none; border-radius: 3px; padding: 3px 8px; margin-left: 10px; cursor: pointer; }
+
+/******************************************
+Styling of registers UI
+******************************************/
+.section-display-results .display-results .view-app-results{ display: block; width: 100%; height: auto; position: relative; }
+.section-display-results .display-results .view-app-results.on-tabs-nav-overflow{ height: 720px; overflow-y: scroll; }
+.section-display-results .display-results .view-app-results.on-tab-results{ height: 100%; overflow-y: auto; }
+/*linked*/
+.section-display-results .display-results .view-app-results .div-view-registers{ display: block; width: 100%; height: 240px; background: #49525D; margin:0 0 15px 0; border-radius: 3px; padding-bottom: 10px; overflow: hidden; }
+.section-display-results .display-results .view-app-results .div-view-registers .title-main{ display: block; clear: both; font-size: 16px; color: #fff; font-weight: 400; margin-bottom: 10px; padding: 8px; background: #58677C; border-radius: 3px 3px 0 0; }
+.section-display-results .display-results .view-app-results .div-view-registers .view-individual-registers { display: block; float: left; height: auto; padding-right: 15px;}
+.section-display-results .display-results .view-app-results .div-view-registers .view-individual-registers .view-register{ display: inline-block; width: 145px; background: #eee; border-radius: 2px; text-align: center; margin: 0 10px 10px 10px;}
+.section-display-results .display-results .view-app-results .div-view-registers .view-individual-registers .view-register .title-register{ display: block; clear: both; padding: 12px; border-bottom: 1px solid #333; font-size: 14px; }
+.section-display-results .display-results .view-app-results .div-view-registers .view-individual-registers .view-register .value-register{ display: block; clear: both; padding: 12px;  font-size: 14px; font-weight: 200; }
+/*linked*/
+.section-display-results .display-results .view-app-results .div-view-registers .figure-table-general-registers{ display: block; width: 400px; float: left; height: auto; background: #f0f0f0; padding: 3px 3px 3px 3px; border-radius: 2px;margin-right: 10px;}
+.section-display-results .display-results .view-app-results .div-view-registers .figure-table-general-registers .title-main-table-gen-reg{ display: block; width: 100%; height: auto; clear: both; }
+.section-display-results .display-results .view-app-results .div-view-registers .figure-table-general-registers .title-main-table-gen-reg .title-this{ display: block; width: 33.33%; height: auto; float: left; text-align: center; font-size: 14px; color: #0b0c0c; background: #ffd702;background-clip: padding-box;-webkit-background-clip: padding-box; font-weight: 400; box-sizing: border-box; padding: 6px;  border-radius: 3px; border: 1px solid transparent;}
+.section-display-results .display-results .view-app-results .div-view-registers .figure-table-general-registers .line-current-reg{ display: block; width: 100%; clear: both; height: auto; padding: 1px 0;  }
+.section-display-results .display-results .view-app-results .div-view-registers .figure-table-general-registers .line-current-reg .desc-this{ display: block; width: 32.33%; height: auto; float: left; text-align: center; font-size: 14px; color: #414141;  font-weight: 400;  padding: 2px 4px ; box-sizing: border-box; }
+
+/********************************
+Styling of flags
+*********************************/
+.section-display-results .display-results .view-app-results .div-view-registers .view-individual-registers .view-flag{ display: inline-block; width: 60px; background: #eee; border-radius: 2px; text-align: center; margin: 0 10px 10px 10px;}
+.section-display-results .display-results .view-app-results .div-view-registers .view-individual-registers .view-flag .title-flag{ display: block; clear: both; padding: 4px; border-bottom: 1px solid #333; font-size: 14px; }
+.section-display-results .display-results .view-app-results .div-view-registers .view-individual-registers .view-flag .value-flag{ display: block; clear: both; padding: 4px;  font-size: 13px; font-weight: 200; }
+
+
+
+/******************************************
+Styling of pipeline table
+******************************************/
+.section-display-results .display-results .view-app-results .div-view-pipeline-process{ display: block; width: 100%; height: auto; min-height: 100px; background: #49525D; border-radius: 3px; margin: 0 0 15px 0; position: relative; }
+.section-display-results .display-results .view-app-results .div-view-pipeline-process .title-main{ display: block; clear: both; font-size: 16px; color: #fff; font-weight: 400; margin-bottom: 10px; padding: 8px; background: #58677C; border-radius: 3px 3px 0 0; }
+.section-display-results .display-results .view-app-results .div-view-pipeline-process .title-main .icon-this-inside{ display: inline-block; text-indent: -9999px; width: 21px; height: 21px; background: url("resources/icon-view-pipeline-table.png") center center no-repeat; padding-right: 5px; }
+.section-display-results .display-results .view-app-results .div-view-pipeline-process .figure-pipeline-table-div{ display: block; width: 100%; box-sizing: border-box; padding: 5px 10px 10px 10px; }
+.section-display-results .display-results .view-app-results .div-view-pipeline-process .figure-pipeline-table-div .table-pipeline{ width: 100%;  }
+.section-display-results .display-results .view-app-results .div-view-pipeline-process .figure-pipeline-table-div .table-pipeline th{ /*just for development, to be customized for final-->*/ color: #ffffff; border: 1px solid #A6A6A6;  }
+.section-display-results .display-results .view-app-results .div-view-pipeline-process .figure-pipeline-table-div .table-pipeline td{ /*just for development, to be customized for final-->*/ color: #ffffff; border: 1px solid #A6A6A6;  }
+/*linked*/
+.section-display-results .display-results .view-app-results .div-view-pipeline-process .figure-navigate-pipeline-table{ display: block; position: absolute; width: 100%; height: 35px; bottom: 0; left: 0; text-align: center; }
+.section-display-results .display-results .view-app-results .div-view-pipeline-process .figure-navigate-pipeline-table .nav-pipeline{ display: inline-block; }
+.section-display-results .display-results .view-app-results .div-view-pipeline-process .figure-navigate-pipeline-table .nav-pipeline .nav-this{ display: inline-block; margin-right: -4px; width: 35px; height: 35px; line-height: 35px; background: #ffeb83; cursor: pointer; }
+
+
+
+/******************************************
+Styling of data memory table
+******************************************/
+.section-display-results .display-results .view-app-results .div-view-data-memory{ display: block; width: 100%; min-height: 130px; background: #49525D; border-radius: 3px; margin: 0 0 15px 0; position: relative; }
+.section-display-results .display-results .view-app-results .div-view-data-memory .title-main{ display: block; clear: both; font-size: 16px; color: #fff; font-weight: 400; margin-bottom: 10px; padding: 8px; background: #58677C; border-radius: 3px 3px 0 0; }
+.section-display-results .display-results .view-app-results .div-view-data-memory .title-main .icon-this-inside{ display: inline-block; text-indent: -9999px; width: 21px; height: 21px; background: url("resources/icon-view-data-memory-table.png") center center no-repeat; padding-right: 5px; }
+.section-display-results .display-results .view-app-results .div-view-data-memory .figure-data-memory-table-div{ display: block; width: 100%; box-sizing: border-box; padding: 5px 10px 10px 10px; }
+.section-display-results .display-results .view-app-results .div-view-data-memory .figure-data-memory-table-div .table-data-memory{ width: 100%; max-width: 500px;   }
+.section-display-results .display-results .view-app-results .div-view-data-memory .figure-data-memory-table-div .table-data-memory th{ /*just for development, to be customized for final-->*/ color: #ffffff; border: 1px solid #A6A6A6;  }
+.section-display-results .display-results .view-app-results .div-view-data-memory .figure-data-memory-table-div .table-data-memory td{ /*just for development, to be customized for final-->*/ color: #ffffff; border: 1px solid #A6A6A6; padding: 2px;  }
+/*linked*/
+.section-display-results .display-results .view-app-results .div-view-data-memory .figure-data-memory-table-div .table-data-memory tr th:nth-child(2){ display: table-cell;   }
+.section-display-results .display-results .view-app-results .div-view-data-memory .figure-data-memory-table-div .table-data-memory tr td:nth-child(2){ display: table-cell;  }
+
+
+
+
+/******************************************
+Styling of time of running division
+******************************************/
+.section-display-results .display-results .view-app-results .div-view-time-of-running{display: block; width: 100%; height: auto; background: #49525D; padding: 10px; margin:0 0 0px 0; border-radius: 3px; color: #fff; box-sizing: border-box; }
+
+
+
+/******************************************
+Styling of errors display(Console)
+******************************************/
+.section-errors{ display:block; width:100%; float:left; clear:both; /*background:#df5757;*/ background: #19202A; border-radius:0px; -moz-border-radius:0px; -webkit-border-radius:0px; margin:0px 0 0 0 ;  box-sizing:border-box; -moz-box-sizing:border-box; -webkit-box-sizing:border-box; overflow:hidden;}
+.section-errors .title-this{ display:block; float: left;; width: 82px; min-height: 70px;/*height must be set dinamically via JS,also line-height*/ line-height: 70px; background: #2C333D; color:#fff; font-size:18px; font-weight:200; padding:10px 15px 10px 25px; }
+.section-errors .error-this{ display:block; width: 80%; float: left; padding:10px 15px 10px 25px; color:#fff; min-height: 45px; box-sizing: border-box;} 
+.section-errors .error-this span{ display: block; width: 100%; clear: both; padding: 2px 0; }
+.section-errors .error-this span.type-info{ color: #fff; }
+.section-errors .error-this span.type-error{ /*color: #a33200;*/ color: #f2f2f2; }
+.section-errors .error-this span.type-warning{ color: #333; }
+.section-errors .warn-errors{ color: red; }
+/*linked*/
+.section-errors .title-this.have-errors{ animation-name: errors-title-on-error; animation-duration: 2500ms; animation-iteration-count: 5; animation-timing-function: linear; }
+/*linked - animation for error title */
+@keyframes errors-title-on-error {
+    0%   { /*background:#fff;*/}
+    25%  { }
+    50%  { background: #F34135;  color: #fff; }
+    75%  { }
+    100% { background: #2C333D; color: #ffffff; }
+}
+
+
+
+
+/*===========================================================================================*
+ *  MISC Style
+/*===========================================================================================*/
+
+.aut-ui-button{ display:inline-block; padding:17px 25px; /*background:#528cd9 ;*/ background:#52ABD9; color:#fff; font-size:15px; border:none; border-radius:3px; -moz-border-radius:3px; -webkit-border-radius:3px; margin-top:10px; cursor:pointer; font-family:inherit; margin-right:10px; transition: all linear 160ms;}
+.aut-ui-button:hover{ background-color: #64bdeb;  }
+/*linked*/
+.aut-ui-button.form-button{ padding-top: 15px !important; padding-bottom: 15px !important;  }
+/*linked*/
+.aut-ui-button.have-icon{ padding: 17px 18px 17px 36px; }
+/*linked*/
+.aut-ui-button.have-icon.icon-info1{ background-image: url("resources/icon-info1-16px.png"); background-repeat: no-repeat; background-position: 12px center; }
+.aut-ui-button.have-icon.icon-book{ background-image: url("resources/icon-book-16px.png"); background-repeat: no-repeat; background-position: 12px center; }
+.aut-ui-button.have-icon.icon-check{ background-image: url("resources/icon-check-16px.png"); background-repeat: no-repeat; background-position: 12px center; }
+.aut-ui-button.have-icon.icon-save{ background-image: url("resources/icon-save-16px2.png"); background-repeat: no-repeat; background-position: 12px center; }
+
+
+.c-holder{ display:block; width:100% ; height:auto; padding:0; margin:0; clear:both;}

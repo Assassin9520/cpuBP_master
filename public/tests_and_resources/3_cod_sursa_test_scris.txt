@@ -1,0 +1,15 @@
+
+----------------------
+VER_1(20.05.2020)
+----------------------
+#cod sursa pentru screenshoturi implementare aplicatie de pus la scris disertatie(.doc)
+
+#start:
+MOV R1, 0x00 
+MOV R2, 0x00 
+CMP R1, R2
+JNZ loop
+NOP
+loop:
+HALT
+

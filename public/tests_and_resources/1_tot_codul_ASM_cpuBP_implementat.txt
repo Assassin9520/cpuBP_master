@@ -1,0 +1,201 @@
+
+----------------------------------------------
+VER1_ALL:  (13 12 2019) 
+----------------------------------------------
+--am un mini limbaj de construit mai jos pentru
+  inceperea constructiei interpretorului/
+  executorului cpu
+----------------------------------------------
+MOV R111 , R2 #instr de incarc reg in alt reg
+MOV R1,0x7D #alt is:MOV R1,2DH, supports 8bit hexa value,no more
+
+#comment linie noua_test
+JNZ 0xE300 
+JNZ to_label_jnz #pentru toate jp-urile voi creea label-uri
+JPZ 0x0001 
+JPZ to_label_jpz
+eticheta_label_1:
+JMP 0x1111
+JMP _to_label #label in jump(fara :),MUST implem in all jumps
+JNC 0x1000
+JNC to_label_jnc
+JPC 0x1001
+JPC to_label_jpc
+JNN 0x1002
+JNN to_label_jnn
+JPN 0x1003
+JPN to_label_jpn
+JNO 0x1004
+JNO to_label_jno
+JPO 0x1005
+JPO to_label_jpo
+_to_label:
+STR R3, R4, R5
+STR R6 , 0xff 
+LDR R7, R8, R9
+LDR R10, 0x55
+ADD R11, R12
+ADD R13, 0xA
+ADC R14, R0
+SUB R0, R1
+SUB R0, 0x6
+SBC R1, R2
+AND R0, R1
+ORR R0,R1
+XOR R0,R1
+CMP R10,R11
+INV R13
+SHL R13
+SHR R13
+ROL R13
+ROR R13
+PSH R7
+POP R7
+CLZ
+CLC
+CLN
+NOP   
+HALT 
+
+
+#..
+#limbaj de test pentru constr intepretor:
+#doar cateva instr de baza  
+MOV R2,0x7D
+MOV R111 , R2 #intentionat gresit R111,testeaza valori oriunde
+ADD R1, R2
+JNZ 0xE300
+JMP _to_label_STR
+_to_label_STR:
+STR R3, R4, R5
+JMP 0xA #0xA dat aleator, calculez sa indice la instr urm(NOP)
+NOP #aici e locatia 0xA din jumpul precedent
+HALT
+
+
+
+
+
+
+
+
+
+----------------------------------------------
+VER1_ALL_START:  (21 11 2019) 
+----------------------------------------------
+--doar limbajul mic de interpretat(lbaj de test)
+  PT LIMBAJ FULL , vezi VER1_ALL din acest fisier
+----------------------------------------------
+#..
+#limbaj de test pentru constr intepretor:
+#doar cateva instr de baza  
+MOV R2,0x7D
+MOV R111 , R2 #intentionat gresit R111,testeaza valori oriunde
+ADD R1, R2
+JNZ 0xE300
+JMP _to_label_STR
+_to_label_STR:
+STR R3, R4, R5
+JMP 0xA #0xA dat aleator, calculez sa indice la instr urm(NOP)
+NOP #aici e locatia 0xA din jumpul precedent
+HALT
+
+
+
+
+
+
+----------------------------------------------
+VER1_ALL_IMPLEMENTED:  (02 01 2020) 
+----------------------------------------------
+  -PT LIMBAJ FULL , vezi VER1_ALL din acest fisier
+  -INTOTDEAUNA pune instr HALT la sf lb de asamblare
+    ca sa opreasca executia  
+  -#implementata - instructiune total validata si 
+    implementata in lbaj
+--------------------------------------
+#toate implementate:
+MOV R2,0x7D        #implementata
+MOV R11 , R2       #implementata
+JMP 0x3            #implementata
+_lbl_JMP_0x3_ant:  #implementata
+JMP _to_label_MY   #implementata
+_to_label_MY:      #implementata
+
+JNZ 0x07           #implementata
+JNZ jnz_label      #implementata
+jnz_label:         #implementata
+JPZ 0x0A           #implementata
+JPZ jpz_label      #implementata
+jpz_label:         #implementata
+JNC 0x0D           #implementata
+JNC jnc_label      #implementata
+jnc_label:         #implementata
+JPC 0x10           #implementata
+JPC jpc_label      #implementata
+jpc_label:         #implementata
+JNN 0x13           #implementata
+JNN jnn_label      #implementata
+jnn_label:         #implementata
+JPN 0x16           #implementata
+JPN jpn_label      #implementata
+jpn_label:         #implementata
+JNO 0x19           #implementata
+JNO jno_label      #implementata
+jno_label:         #implementata
+JPO 0x1C           #implementata
+JPO jpo_label      #implementata
+jpo_label:         #implementata
+##STR si LDR: 
+MOV R3, 0x03       #implementata-deja
+MOV R4, 0x00       #implementata-deja
+MOV R5, 0xf5       #implementata-deja
+STR R3, R4, R5     #implementata
+STR R3, 0x00ff     #implementata
+LDR R10, R4, R5    #implementata
+LDR R12, 0x00f5    #implementata
+##ADD,ADC,SUB,SBC:
+ADD R8, R12        #implementata
+ADD R13, 0x0A      #implementata
+ADC R14, R0        #implementata
+MOV R0,0x7         #implementata_deja
+MOV R1,0x1         #implementata_deja
+SUB R0, R1         #implementata
+SUB R0, 0x06       #implementata
+SBC R2, R1         #implementata
+AND R2, R5         #implementata
+ORR R0,R1          #implementata
+XOR R0,R1          #implementata
+CMP R10,R11        #implementata
+INV R13            #implementata
+SHL R13            #implementata
+SHR R13            #implementata
+ROL R13            #implementata
+ROR R13            #implementata
+CLZ                #implementata
+CLC                #implementata
+CLN                #implementata
+
+#PSH R4             #nu_mai_implementez_NOT_NEEDED
+#POP R4             #nu_mai_implementez_NOT_NEEDED
+
+NOP                #implementata
+NOP                #implementata
+HALT               #implementata
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

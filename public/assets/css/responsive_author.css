@@ -1,0 +1,141 @@
+/* Extra small devices (phones, less than 768px) */
+/* No media query since this is the default in Bootstrap */
+
+/**
+ SITE_NAME: RESPONSIVE;
+**/
+
+/*Default desktop , from max res to low res*/
+@media all
+{
+		
+	
+}
+
+
+/* (1366x768)768p Laptops and down */
+@media (max-width:1370px) 
+{
+	.aside-body{ height: auto; min-height: 788px; }
+	.aside-body .extra-space-top-aside{ height: 56px; }
+	.aside-body .nav-add-instructions-aside ul > li{ height: 52px; }
+
+	.notification-area-top{  }
+
+	.section-form-data { padding-top:10px;}
+	.section-form-data .form-this .input-this.on-textarea{  height:550px; max-height:550px;}	
+	
+	.section-display-results{ padding-top:10px; }
+	.section-display-results .display-results{ height:550px; }
+	.section-display-results .display-results .display-roll-this{ height: 550px; }
+
+}
+
+
+@media (max-width:1140px) 
+{
+	
+}
+
+/*#############################################*/
+/*#############################################*/
+
+/* (1024x768) */
+@media (max-width:1030px) 
+{
+	.aside-body{  }
+	.aside-body .extra-space-top-aside{  }
+	.aside-body .nav-add-instructions-aside ul > li{ height: 46px; }
+
+	.notification-area-top{  }
+
+	.section-form-data { }
+	.section-form-data .form-this .input-this.on-textarea{  }	
+	
+	.section-display-results{  }
+	.section-display-results .display-results{  }
+
+}
+
+
+/*#############################################*/
+/*#############################################*/
+
+/* Medium devices (desktops, 960px and up) */
+@media (min-width:960px) 
+{
+	
+}
+
+/* Small devices (tablets, 768px and up) */
+@media (max-width:960px) 
+{
+	
+}
+
+/*#############################################*/
+/*#############################################*/
+
+/* (800x600) */
+@media (max-width:810px) 
+{
+	body{ min-width: 800px; }
+
+	.aside-body{ height: auto; min-height: 600px; }
+	.aside-body .extra-space-top-aside{ height: 39px; }
+	.aside-body .nav-add-instructions-aside ul > li{ height: 41px; }
+
+	.notification-area-top{ height: 10px;  }
+
+	.section-form-data { padding-top:10px;}
+	.section-form-data .form-this .input-this.on-textarea{  height:400px; max-height:400px;  font-size: 12px;}	
+	
+	.section-display-results{ padding-top:10px; }
+	.section-display-results .display-results{ height:400px; }
+	.section-display-results .display-results .display-roll-this{ height: 400px; }
+
+	.section-form-data .form-this .input-submit{ padding: 6px 6px 6px 30px; font-size: 13px; margin-right: 4px; }
+	.aut-ui-button{ padding: 8px 6px 8px 36px !important; font-size: 13px; margin-right: 4px; }
+	.aut-ui-button.form-button{ padding-top: 6px !important; padding-bottom: 6px !important; }
+
+}
+
+
+/*#############################################*/
+/*#############################################*/
+
+
+/**LINKED**/
+@media (max-width:768px)
+{	
+
+}
+
+
+
+/**Most of Phones included here**/
+@media (max-width:480px)
+{
+	
+}
+
+/*Phones with low RES*/
+@media (max-width:360px)
+{
+	
+
+}
+
+/*ONLY Chrome*/
+@media screen and (-webkit-min-device-pixel-ratio:0) 
+{ 
+
+}
+
+
+
+/*#############################################*/
+/*#############################################*/
+/*END OF DOCUMENT/*
+/*#############################################*/
+/*#############################################*/

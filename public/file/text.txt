@@ -1,0 +1,26 @@
+#start:
+#init:
+MOV R0, 0x00 #ctr i=0
+MOV R1, 0x00 #addr high mem date
+MOV R2, 0x00 #addr low mem date Vector V(de unde se incepe copierea)
+MOV R3, 0x80 #addr low mem date start Vector F(unde se vor pune datele)
+MOV R4, 0x0A #cate elemente copiez
+
+#start_asm_code_copy:
+loop:
+CLZ
+CLC
+#insidefor:
+LDR R5, R1, R2  #R5<-v[i]
+ADD R2, 0x01
+STR R5, R1, R3  #f[i](0x0080+)<- v[i]
+ADD R3, 0x01 #index of f[i]++ 
+CLZ #clear z just in case additions sets Z
+#end_insidefor
+ADD R0, 0x01
+CMP R0, R4 #if a==b, flag z=1
+JNZ loop
+CLZ 
+CLC
+HALT
+#end algo

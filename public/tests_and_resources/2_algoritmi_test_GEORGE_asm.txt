@@ -1,0 +1,325 @@
+Acestia sunt 4 algoritmi de test final 
+(pentru a testa predictia si a ii pune in lucrare scrisa):
+-------------
+ATENTIE :
+-acesti algoritmi functioneaza pentru ca am incarcat 30 de campuri in memory data cu o functie DEV.
+-daca se doreste altfel(se dezactiveaza functia), campurile din memoria de date trebuiesc incarcate manual cu instructiuni de tip STR.
+-------------
+
+
+1. cod calcul suma vector
+------
+#calcul suma vector
+#PSEUDOCOD:
+#int s = 0;
+#int v[10] = [20, 10, ..., 87];
+#for(int i=0; i<=length(v); i++){
+#	s = s + v[i];
+#}
+#END_PSEUDOCOD
+#30 elemente de cate 1 octet(byte)
+#se presupune ca memoria de date are elemente pe liniile 0->30(le pun eu cu functii de test)
+#plasate in memorie de la 00h(0x0000)
+#MERGE IN APP MEA - ieee
+#start:
+MOV R1, 0x00 
+MOV R2, 0x00 
+MOV R0, 0x00 
+MOV R3, 0x1E 
+loop:
+LDR R4, R1,R2 
+ADD R2, 0x01
+ADD R0, R4    
+SUB R3, 0x01  
+MOV R5, 0x00
+CMP R3, R5
+JNZ loop
+#stochez rezultat la adr 0x0080
+MOV R2, 0x80
+STR R0, R1,R2
+HALT
+#pana aici cod suma vector de la Birleanu -
+
+
+
+
+
+2. cod assembly - Algoritm calcul maxim(scris de Geo)
+------
+#algo calcul max din vector 10 elemente
+#PSEUDOCOD:
+#  int v = [2,3,.......9,19]
+#  max = v[0]   
+#  for(i=1, i<= L){ //l=length of arr v
+#     if(max < v[i])
+#         max = v[i]
+#  }
+#END_PSEUDOCOD
+#implementare_assembly_my_app:
+#start:
+MOV R1, 0x01 #ctr i=1
+MOV R2, 0x00 #high mem date addr
+MOV R3, 0x00 #low mem date addr
+MOV R5, 0x0A #nr max elemente vector(primele 10)
+LDR R0, R2, R3 #max = v[0]
+
+loop1:
+CLZ  #resetare flaguri dupa fiecare if, for 
+CLC
+#
+#insidefor-if
+ADD R3,0x01 #preia urm elem vector -INC R3
+LDR R4, R2, R3 # R4 <- v[i]
+CMP R0, R4  #if max < v[i]
+JNC out_of_if
+MOV R0, R4 #max = v[i]
+CLZ 
+CLC
+out_of_if:
+NOP
+CLZ
+CLC
+#endinsidefor-if
+#
+ADD R1,0x01 #i++(INC R1)
+CMP R1, R5
+JNZ loop1
+
+CLZ 
+CLC
+MOV R3, 0x80
+STR R0, R2,R3 #stocare max la addr mem 0x0080
+HALT
+#pana aici - cod calcul MAX vector elem by Geo
+
+
+
+
+
+3.cod assemby - Algoritm Sortare Interschimbare(SelectSort)(scris de Geo)
+-----
+#algo sortare interschimbare
+#elementele din vector trebuie sa fie toate diferite intre ele
+#incepem de la addr 0x0000 mem date
+#plasare numere sortate tot de la addr 0x000(pentru moment)(altfel nu se poate)
+#MERGE(reparat: , resetat j-ul in primul for, adaugat JNC pentru test mai mare(>) in test if)
+#PSEUDOCOD:
+#  int v = [1,2,.....,9,10]
+#  for(i=0, i<=L-1){  //L=length of array v
+#      for(j=i+1, L){
+#         if(v[i] > v[i+1]){
+#             //interschimbare:
+#             aux  = v[i]
+#             v[i] = v[j]  //v[i]  <-->  v[j]
+#             v[j] = aux
+#         }
+#      }
+#  }  
+#END_PSEUDOCOD
+#implementare_assembly_my_app:
+#start:
+#init:
+MOV R0, 0x00 #ctr i=0
+MOV R1, 0x00 #high mem date addr
+MOV R2, 0x00 #low mem date addr
+MOV R3, 0x0A #nr elemente vector de interschimbat(primele 10)
+MOV R4, 0x01 #ctr j=i+1(init)
+MOV R5, 0x09 #L-1(limita for i)
+
+#add algoritm copiere memorie date aici ca sa compari(copiere la addr 0x0080)(primele 10)
+#usor ce a fost inainte cu ce e acum in mem(sa demo sa merge algo)
+
+#start_code_asm:
+for_loop1:
+MOV R4, R0  #reset j (i+1)
+ADD R4, 0x01  #reset j (i+1)
+CLZ #reset flags after each for,if,while
+CLC
+#insidefor1:
+for_loop2:
+CLZ
+CLC
+#insidefor2:
+LDR R6, R1, R0  #R6= v[i]
+LDR R7, R1, R4  #R7=v[j](v[i+1])
+CMP R6,R7  #if a>b, flag z=0 si C=0
+JPZ out_of_if #test z=1 =>out
+JPC out_of_if #test c=1 =>out(ambele test pentru mai mare >)
+CLZ 
+CLC
+#follows code inside if(interschimbare)
+MOV R8, R6 #aux=v[i]
+MOV R6, R7 #v[i]=v[j]
+MOV R7, R8 #v[j]=aux
+#stocare back in memory(change here if move elems in mem)
+STR R6, R1, R0
+STR R7, R1, R4
+out_of_if:
+NOP
+CLZ 
+CLC
+#end_insidefor2
+ADD R4, 0x01
+CMP R4, R3
+JNZ for_loop2
+CLZ
+CLC
+#end_insidefor1
+ADD R0, 0x01 #i++ (INC R0)
+CMP R0,R5
+JNZ for_loop1
+CLZ 
+CLC
+HALT
+
+
+
+
+
+
+
+4.Cod assembly - Algoritm sortare bubble_sort (scris de Geo)
+-----
+#algoritm sortare bubble sort
+#elementele tre sa fie toate diferite
+#incepem de la addr mem date 0x0000
+#acest algo merge doar daca incep de la addr 
+  mem date 0x0000(ca sa incep de la alta addr , trebuie mici schimbari)
+#nu uita sa resetezi flagurile(CLZ,CLC,CLN)(ar trebui functie interna in Jumpuri pentru asta)
+#MERGE, YEEEA
+#PSEUDOCOD:
+#  sortat = 0;
+#  while( sortat == 0){
+#      sortat = 1;
+#      for(i=0, i<= L-1)  //L = length of array
+#      {
+#         if(v[i] > v[i+1]){
+#             v[i]  <-->  v[i+1]  //interschimbare(cu aux)
+#             sortat = 0
+#         }
+#      }
+#  }    
+#END_PSEUDOCOD
+#implementare_assembly_my_app:
+#start:
+#init:
+MOV R0, 0x00 #sortat=0
+MOV R1, 0x00 #high mem date addr
+MOV R2, 0x00 #low mem date addr
+MOV R3, 0x00 #ctr i=0
+MOV R4, 0x00 #comparatie finala while(sortat==0)
+MOV R5, 0x0A #nr max elemente de sortat
+SUB R5, 0x01 #L-1 pt for(nivel de sus)
+MOV R8, 0x01 #R8 e v[i+1]
+
+#cod_asm_start:
+#USE ALGO COPY DATA MEMORY HERE
+#....
+
+#cod_asm_bubble_sort:
+JMP while_loop
+content_loop1:
+#insideWhile
+CLZ
+CLC
+MOV R3, 0x00 #reset index i at each iteration
+MOV R0, 0x01 #sortat = 1
+loop_for:
+CLZ
+CLC
+MOV R8, R3   #i+1 stocat in R8(reset)
+ADD R8, 0x01 #i+1 stocat in R8(reset)
+#insideFor
+LDR R6, R1, R3  #get v[i]
+LDR R7, R1, R8  #get v[i+1]
+CMP R6, R7 #if a>b , flags z=0, c=0
+JPZ out_of_if
+JPC out_of_if
+CLZ
+CLC
+#code inside if 
+#interschimbare
+MOV R9, R6 #aux=v[i]
+MOV R6, R7 #v[i] = v[i+1]
+MOV R7, R9 #v[i+1] = aux
+STR R6, R1, R3 
+STR R7, R1, R8
+#end_interschimbare
+MOV R0, 0x00 #sortat = 0
+out_of_if:
+CLZ
+CLC
+NOP
+#end_insideFor
+ADD R3, 0x01
+CMP R3, R5
+JNZ loop_for
+CLZ
+CLC
+#end_insideWhile
+while_loop:
+CMP R0, R4
+JPZ content_loop1
+HALT
+#end_algorithm
+
+
+
+
+
+
+
+5.cod AUXILIARY - algoritm copiere memorie date de la o adresa la alta adresa
+---------------
+#algoritm auxiliar copiere memorie date in alta parte
+#ex: copiere 10 elemente de la addr 0x0000 la addr 0x0080
+#daca ai nevoie de acest algoritm , copiaza inainte de a declara ceilalti algoritmi
+#PSEUDOCOD:
+#v=[0,1,......,8,9,10]
+#f=[] //vector final empty - f vector = 0x0080
+#for(int i=0; i<=10; i++){
+#    f[i] = v[i]
+#}
+#END_PSEUDOCOD
+#implementare assembly:
+#start:
+#init:
+MOV R0, 0x00 #ctr i=0
+MOV R1, 0x00 #addr high mem date
+MOV R2, 0x00 #addr low mem date Vector V(de unde se incepe copierea)
+MOV R3, 0x80 #addr low mem date start Vector F(unde se vor pune datele)
+MOV R4, 0x0A #cate elemente copiez
+
+#start_asm_code_copy:
+loop:
+CLZ
+CLC
+#insidefor:
+LDR R5, R1, R2  #R5<-v[i]
+ADD R2, 0x01
+STR R5, R1, R3  #f[i](0x0080+)<- v[i]
+ADD R3, 0x01 #index of f[i]++ 
+CLZ #clear z just in case additions sets Z
+#end_insidefor
+ADD R0, 0x01
+CMP R0, R4 #if a==b, flag z=1
+JNZ loop
+CLZ 
+CLC
+HALT
+#end algo
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
