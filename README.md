@@ -50,11 +50,11 @@ The build custom simulated CPU inside the application features the following BRA
 
 # Instructions on use 
 <br>
-Please refer to Pages/help.html , which contains all the details of the language and the instructions .
- <br>
+<b>Please refer to Pages/help.html , which contains all the details of the language and the instructions .</b>
+ <br/>
  
-cpuBP ASM instructions(help about them in Pages/help.html)(These are example of use, not proof of concept):
- <br>
+<b>cpuBP ASM instructions(help about them in Pages/help.html)(These are example of use, not proof of concept):</b>
+ <br/>
 JNZ 0xE300 <br>
 JNZ to_label_jnz #it is easier to create labels inside JUMP instructions<br>
 JPZ 0x0001 <br>
@@ -116,14 +116,24 @@ HALT <br>
 <br />Tests:
 <br />
 
-<br />A.-Running the application using - compute array sum
+<br /><b>A.-Running the application using - compute array sum</b>
 
 ![img2](https://i.imgur.com/X40ZFeQ.jpg)
 
+
+<br /><b>B.-Running the application using - compute max Element of array</b>
+
+![img3](https://i.imgur.com/90HsFF6.jpg)
+
+
+<br /><b>C.-Running the application using - BRANCH PREDICTION on quicksort ASM algorithm</b>
+
+![img4](https://i.imgur.com/7WSzLkW.jpg)
+
+<br /> The example result of bubble sort algorithm can be found in public/test_and_resources . Can be tried by yourself.
+
 <br />
 <br />
-<br />
-<br />
-<br />
+
 
 
