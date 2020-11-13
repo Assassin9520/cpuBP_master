@@ -23,7 +23,7 @@ The build custom simulated CPU inside the application features the following BRA
 ![imga](https://i.imgur.com/0cSOYko.jpg)
 
 <br/>-Dynamic 2-BIT (works by the following given finite-state automata)
-![imgb](https://i.imgur.com/39o7DfD.jpg)
+![imgb](https://i.imgur.com/OC5Szpg.jpg)
 
 <br/>
 
@@ -110,15 +110,20 @@ HALT <br>
 <br> Interface explained:
 <!-- ... -->
 <!-- COMENTARIU: imagine cu interfata explicata cpuBP comes here... -->
-![img1](https://i.imgur.com/zj70JEd.png)
+![img1](https://i.imgur.com/wQQiOZr.jpg)
 
-<br>Tests:
+<br />
+<br />Tests:
+<br />
 
--Running the application using quicksort algorithm 
-bla bla, alte teste
-<br>
-<br>
-<br>
-<br>
-<br>
+<br />A.-Running the application using - compute array sum
+
+![img2](https://i.imgur.com/X40ZFeQ.jpg)
+
+<br />
+<br />
+<br />
+<br />
+<br />
+
 
