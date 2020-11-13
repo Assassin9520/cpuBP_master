@@ -13,13 +13,13 @@ Web-based app for detecting the rate of correct Branch Predictions inside a cust
 The application was built for teaching purposes, to serve future students in the laboratory rooms to study how to make predictions of jump instruction in the processor, but also to study their effectiveness, all using only this application.
 <br>
 This allows, before the actual jump predictions, which present the purpose of the present paper, the writing of code in the custom assembly language integrated in it's functionality, in a simpler and more intelligible manner.
-<br> 
+<br/><br/>
 
 The build custom simulated CPU inside the application features the following BRANCH PREDICTORS:
-<br>-<b>Static NOT-TAKEN</b>  (always returns the response: not-taken. Tells the CPU that The jump will NOT be taken)
-<br>-<b>Static TAKEN</b>  (always returns the response: not-taken. Tells the CPU that The jump will NOT be taken)
-<br>-Dynamic 1-BIT 
-<br>
+<br/>-<b>Static NOT-TAKEN</b>  (always returns the response: not-taken. Tells the CPU that The jump will NOT be taken)
+<br/>-<b>Static TAKEN</b>  (always returns the response: not-taken. Tells the CPU that The jump will NOT be taken)
+<br/>-Dynamic 1-BIT 
+<br/>
 
 <br>The data structures and components of the CPU are:
 <br>Data memory(64k locations)
