@@ -13,9 +13,20 @@ Web-based app for detecting the rate of correct Branch Predictions inside a cust
 The application was built for teaching purposes, to serve future students in the laboratory rooms to study how to make predictions of jump instruction in the processor, but also to study their effectiveness, all using only this application.
 <br>
 This allows, before the actual jump predictions, which present the purpose of the present paper, the writing of code in the custom assembly language integrated in it's functionality, in a simpler and more intelligible manner.
- .  
+<br> 
+
 The build custom simulated CPU inside the application features the following BRANCH PREDICTORS:
--
+<br>-<b>Static NOT-TAKEN</b>  (always returns the response: not-taken. Tells the CPU that The jump will NOT be taken)
+<br>-<b>Static TAKEN</b>  (always returns the response: not-taken. Tells the CPU that The jump will NOT be taken)
+<br>-Dynamic 1-BIT 
+<br>
+
+<br>The data structures and components of the CPU are:
+<br>Data memory(64k locations)
+<br>General-purpose registers: 15 general registers(R0-R14)(8bit each)
+<br>Program Memory(supports up to 10.000 instructions)
+<br>FLAGS: 4 flags (Z,C,N,O)
+
 
 ---
 
@@ -34,55 +45,56 @@ The build custom simulated CPU inside the application features the following BRA
 # Instructions on use 
 <br>
 Please refer to Pages/help.html , which contains all the details of the language and the instructions .
+ <br>
  
 cpuBP ASM instructions(help about them in Pages/help.html)(These are example of use, not proof of concept):
- 
-JNZ 0xE300 
-JNZ to_label_jnz #it is easier to create labels inside JUMP instructions
-JPZ 0x0001 
-JPZ to_label_jpz
-eticheta_label_1:
-JMP 0x1111
-JMP _to_label #label in jump
-JNC 0x1000
-JNC to_label_jnc
-JPC 0x1001
-JPC to_label_jpc
-JNN 0x1002
-JNN to_label_jnn
-JPN 0x1003
-JPN to_label_jpn
-JNO 0x1004
-JNO to_label_jno
-JPO 0x1005
-JPO to_label_jpo
-_to_label:
-STR R3, R4, R5
-STR R6 , 0xff 
-LDR R7, R8, R9
-LDR R10, 0x55
-ADD R11, R12
-ADD R13, 0xA
-ADC R14, R0
-SUB R0, R1
-SUB R0, 0x6
-SBC R1, R2
-AND R0, R1
-ORR R0,R1
-XOR R0,R1
-CMP R10,R11
-INV R13
-SHL R13
-SHR R13
-ROL R13
-ROR R13
-PSH R7
-POP R7
-CLZ
-CLC
-CLN
-NOP   
-HALT 
+ <br>
+JNZ 0xE300 <br>
+JNZ to_label_jnz #it is easier to create labels inside JUMP instructions<br>
+JPZ 0x0001 <br>
+JPZ to_label_jpz<br>
+eticheta_label_1:<br>
+JMP 0x1111<br>
+JMP _to_label #label in jump<br>
+JNC 0x1000<br>
+JNC to_label_jnc<br>
+JPC 0x1001<br>
+JPC to_label_jpc<br>
+JNN 0x1002<br>
+JNN to_label_jnn<br>
+JPN 0x1003<br>
+JPN to_label_jpn<br>
+JNO 0x1004<br>
+JNO to_label_jno<br>
+JPO 0x1005<br>
+JPO to_label_jpo<br>
+_to_label:<br>
+STR R3, R4, R5<br>
+STR R6 , 0xff <br>
+LDR R7, R8, R9<br>
+LDR R10, 0x55<br>
+ADD R11, R12<br>
+ADD R13, 0xA<br>
+ADC R14, R0<br>
+SUB R0, R1<br>
+SUB R0, 0x6<br>
+SBC R1, R2<br>
+AND R0, R1<br>
+ORR R0,R1<br>
+XOR R0,R1<br>
+CMP R10,R11<br>
+INV R13<br>
+SHL R13<br>
+SHR R13<br>
+ROL R13<br>
+ROR R13<br>
+PSH R7<br>
+POP R7<br>
+CLZ<br>
+CLC<br>
+CLN<br>
+NOP   <br>
+HALT <br>
 
 ----
 
