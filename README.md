@@ -8,6 +8,11 @@ Web-based app for detecting the rate of correct Branch Predictions inside a cust
 
 # Description - What is cpuBP
 <br>
+<b>The cpuBP application</b> is a didactic software program, and more precisely, an interpreter that implements a processor (simulated software), and implicitly, by its nature, implements an assembly language that works in the structure of the built processor, to make jump predictions for testing and the study of the efficiency of the latter in improving the performance of processor architectures.
+<br>
+The application was built for teaching purposes, to serve future students in the laboratory rooms to study how to make predictions of jumps in the processor, but also to study their effectiveness, all using only this application.
+<br>
+This allows, before the actual jump predictions, which present the purpose of the present paper, the writing of code in the owner assembly language in a simpler and more intelligible manner.
 
 ---
 
