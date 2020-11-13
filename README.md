@@ -18,14 +18,20 @@ This allows, before the actual jump predictions, which present the purpose of th
 The build custom simulated CPU inside the application features the following BRANCH PREDICTORS:
 <br/>-<b>Static NOT-TAKEN</b>  (always returns the response: not-taken. Tells the CPU that The jump will NOT be taken)
 <br/>-<b>Static TAKEN</b>  (always returns the response: not-taken. Tells the CPU that The jump will NOT be taken)
-<br/>-Dynamic 1-BIT 
+<br/>-Dynamic 1-BIT (works by the following given finite-state automata)
+
+![imga](https://i.imgur.com/0cSOYko.jpg)
+
+<br/>-Dynamic 2-BIT (works by the following given finite-state automata)
+![imgb](https://i.imgur.com/39o7DfD.jpg)
+
 <br/>
 
-<br>The data structures and components of the CPU are:
-<br>Data memory(64k locations)
-<br>General-purpose registers: 15 general registers(R0-R14)(8bit each)
-<br>Program Memory(supports up to 10.000 instructions)
-<br>FLAGS: 4 flags (Z,C,N,O)
+<br/><b>The data structures and components of the CPU are:</b>
+<br/>Data memory(64k locations)
+<br/>General-purpose registers: 15 general registers(R0-R14)(8bit each)
+<br/>Program Memory(supports up to 10.000 instructions)
+<br/>FLAGS: 4 flags (Z,C,N,O)
 
 
 ---
